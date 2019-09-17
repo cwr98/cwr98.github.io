@@ -1,15 +1,16 @@
 body {
-  background-color: #0571b0;
-  color: #ca0020;
+  background-color: #e66101;
+  color: #5e3c99;
+  text-align: center;
 }
 h1 {
   color: #f7f7f7;
 }
 /*
-colorblind safe color palette from colorbrewer2.org.
-#ca0020 red
-#f4a582 salmon
+colorblind safe color palette from colorbrewer2.org
+#e66101 orange
+#fdb863 tan
 #f7f7f7 white
-#92c5de baby blue
-#051b0 blue
+#b2abd2 light purple
+#5e3c99 purple 
 */

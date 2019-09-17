@@ -1,16 +1,64 @@
+/*
+The back ground title color has changed to a light purple
+*/
+#header{
+  background-color: #b2abd2;
+}
+/* The title text has changed to white, the "hello my name is ..." is white
+*/
+h1 {
+  /* changes the text to white*/
+  color: #f7f7f7;
+  /* padding makes space around an elements content,
+  inside of the defined borders. */
+  padding: 5px;
+  margin: 0;
+}
+/* A large tan box has encompassed much if the bobdy of the website.
+*/
+#body-container {
+  /* This is due to max-width and height.*/
+  background-color: #fdb863;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;
+  border:2px solid #5e3c99;
+  border-radius: 25px;
+  overflow: hidden;
+}
+/*The text has changed color to purple and most of the text and picture has centered itself.
+*/
 body {
-  background-color: #e66101;
+  /* Adds a border to the bodies and around the title */
+  background-color: #fdb863;
   color: #5e3c99;
   text-align: center;
+  margin: 0;
 }
-h1 {
-  color: #f7f7f7;
+
+#profile-picture {
+  /*Moves pic to the left*/
+  float:left;
 }
+#welcome-text {
+  /* increased the text size and font */
+  padding-top: 25px;
+  font-size: 25px;
+}
+
+#research-intrests {
+  text-align:left;
+  font-size: 25px;
+  /* This fixes the numbers that were unilghed on the profle picture.*/
+  position: relative;
+  left: 50px;
+}
+
 /*
 colorblind safe color palette from colorbrewer2.org
 #e66101 orange
 #fdb863 tan
 #f7f7f7 white
 #b2abd2 light purple
-#5e3c99 purple 
+#5e3c99 purple
 */

@@ -9,9 +9,11 @@ The back ground title color has changed to a light purple
 h1 {
   /* changes the text to white*/
   color: #f7f7f7;
-  /* padding makes space around an elements content,
+  /* padding makes inner space around an elements content,
   inside of the defined borders. */
   padding: 5px;
+  /* margin deals with the outer space inside the border, so in this case
+  its 0, because we dont want anything outside the border */
   margin: 0;
 }
 /* A large tan box has encompassed much if the bobdy of the website.
@@ -19,38 +21,65 @@ h1 {
 #body-container {
   /* This is due to max-width and height.*/
   background-color: #fdb863;
+  /* the width is how much you want the body to strech left to right.
+  But also defines the max width of an element, so 1000px is the max
+  it will go  */
   max-width: 1000px;
+  /* margin: auto; is when the browser calculates the margin. In this case
+  the element is horizontally centered within its container. */
   margin: auto;
   height: 100vh;
+  /* The border around the body is created here. The color purple was added,
+  aswell as the width of the border */
   border:2px solid #5e3c99;
+  /* this is what allows the rounded borders on the edges.*/
   border-radius: 25px;
+  /* overflow says to clip content or add scrollbars if the content
+  of the element is to big to fit in a area. hidden is when overflow is
+  not clipped and the rest of the content is invisible. */
   overflow: hidden;
 }
-/*The text has changed color to purple and most of the text and picture has centered itself.
+/*The text has changed color to purple and most of the text and picture has
+centered itself.
 */
 body {
   /* Adds a border to the bodies and around the title */
   background-color: #fdb863;
+  /* this is the text changing color to purple from black*/
   color: #5e3c99;
+  /* this aligns the "Welcome...University" to center. */
   text-align: center;
+  /* margin deals with the outer space inside the border, so in this case
+  its 0, because we dont want anything outside the border */
   margin: 0;
 }
 
 #profile-picture {
-  /*Moves pic to the left*/
+  /*float is used to position or formatting content mostly for images.
+  left the element floats to the left of the container. In simple words it
+  Moves pic to the left*/
   float:left;
 }
 #welcome-text {
-  /* increased the text size and font */
+  /* padding-top property sets a space between the content and its border.
+  So on the webstite it increased the space between the "Hello...!" and the top
+  border.*/
   padding-top: 25px;
+  /* increased the text size and font */
   font-size: 25px;
 }
 
 #research-intrests {
+  /* this aligns the "Research intrests and the list of intrests" to center. */
   text-align:left;
+  /* this increased the text "Research intrests and the list of intrests" to
+  25px */
   font-size: 25px;
-  /* This fixes the numbers that were unilghed on the profle picture.*/
+  /* position property is the type of positioning method used for an element.
+  position relative is relative to its normal position.*/
   position: relative;
+  /* This fixes the numbers that were unilghed on the profle picture.by moving
+  the picture to the left relative to its oringal location */
   left: 50px;
 }
 

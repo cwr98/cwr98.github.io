@@ -82,6 +82,22 @@ body {
   the picture to the left relative to its oringal location */
   left: 50px;
 }
+/*copyright is addinding a box at the bottom where info
+about our web page is going ex name, date, sources*/
+#copyright {
+  /*for absolute the element is positioned relative to its first
+  positioned ancestor element*/
+ position: absolute;
+ /* The width property sets the width of an element,
+ it streches the element horizontally*/
+ width: 1000px;
+ /* This aligns the copyright text at the bottom of
+ the page to the center.*/
+ text-align: center;
+ /*The bottom property affects the vertical position
+ of a positioned element.*/
+ bottom: 20px;
+}
 
 /*
 colorblind safe color palette from colorbrewer2.org

@@ -1,32 +1,46 @@
 <!doctype html>
-  <html>
+<html>
   <head>
     <title>Corban Rosenauer</title>
     <!-- All styling for this HTML document are contained in this external css file -->
     <link rel="stylesheet" type="text/css" href="css/main_style.css">
-    </head>
-    <body>
-      <div id="body-container">
-        <div id="header">
-      <h1><script src="javascript/external.js"></script></h1>
-      
-    </div>
-    <div id="profile-picture">
-      <img src=images/Profile-picture.jpg width=500px height=500px>
-    </div>
+  </head>
+  <body>
+    <div id="body-container">
+      <div id="header">
+        <h1><script src="javascript/external.js"></script></h1>
+      </div>
+      <div id="profile-picture">
+        <img src=images/Profile-picture.jpg width=500px height=500px>
+      </div>
       <div id="welcome-text">
-         <p>Welcome to my webpage.<br>
-         I am a student in the
-         <a href="https://www.geo.txstate.edu/"> Geography Department</a> at
-          <a href="https://txstate.edu">Texas State University.</a>.</p>
-        </div>
-        <div id="research-intrests">
+        My name is Corban Rosenauer.<br>
+        Welcome to my webpage.<br>
+        I am a student in the
+        <a href="https://www.geo.txstate.edu/"> Geography Department</a> at
+        <a href="https://txstate.edu">Texas State University</a>.
+      </div>
+      <div id="research-intrests">
         <h3>Research Interests</h3>
         <ol>
           <li>Politcial Science</li>
           <li>Cartography</li>
           <li>Spaital Analysis</li>
         </ol>
-      </p>
-      </body>
-      </html>
+      </div>
+      <div id="copyright">
+        <script>
+        // This is JS known as date object and the var is getting the
+        //month and day that the code was written
+        var today = new Date(9/23);
+        // The getFullYear() method returns the year four
+        // digits for dates between year 1000 and 9999
+        //of the specified date.
+        var year = today.getFullYear(2019);
+        //And this will contiue to auto update every year
+        document.writeln("Copyright &copy; " + 2019);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

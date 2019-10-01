@@ -98,6 +98,11 @@ about our web page is going ex name, date, sources*/
  of a positioned element.*/
  bottom: 20px;
 }
+#webmap-reviews{
+  text-align: left;
+  font-size: 25px;
+  postion: relative;
+}
 
 /*
 colorblind safe color palette from colorbrewer2.org

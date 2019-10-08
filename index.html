@@ -11,7 +11,7 @@
           intergrity= "sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
           crossorigin="">
         </script>
-          <link rel="stylesheet" type="text/css" href="css/map_style.css"
+          <link rel="stylesheet" type="text/css" href="css/map_style.css"/>
       <script src="javascript/external.js"></script>
     <title>Corban Rosenauer</title>
     <!-- All styling for this HTML document are contained in this external css file -->
@@ -87,7 +87,17 @@
             circle.bindPopup("I am a circle.");
             polygon.bindPopup("I am a polygon");
           </script>
-
+          <script>
+          marker.on('click',function(e){
+            mymap.setView(e.latlng, 14);
+          });
+          circle.on('click', function(e){
+            mymap.setView(e.latlng, 13);
+          });
+          polygon.on('click', function(e){
+            mymap.setView(e.latlng, 13);
+          });
+          </script>
         </div>
   </body>
 </html>

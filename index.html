@@ -11,8 +11,12 @@
           intergrity= "sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
           crossorigin="">
         </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js">
+        </script>
           <link rel="stylesheet" type="text/css" href="css/map_style.css"/>
       <script src="javascript/external.js"></script>
+      <script src="javascript/map.js"></script>
     <title>Corban Rosenauer</title>
     <!-- All styling for this HTML document are contained in this external css file -->
     <link rel="stylesheet" type="text/css" href="css/main_style.css">
@@ -47,7 +51,6 @@
         <script>
         webmap_table();
         </script>
-
       </div>
       <div id="copyright">
         <script>
@@ -63,7 +66,7 @@
         </script>
       </div>
     </div>
-    <h3>My First Webmap</h3>
+    <h3> Geocoding Map</h3>
       <div id="mapid" style="width: 600px; height: 400px; margin: auto;">
         <script>
           var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -75,8 +78,13 @@
           */
           L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png',{
           }).addTo(mymap);
+          var options = {
+            key: geocoder_api_key,
+            limit: 10
+          };
+          var control = L.Control.openCageSearch(options).addTo(mymap);
           </script>
-          <script> var marker = L.marker([51.5, -0.09]).addTo(mymap);
+          <script> /*var marker = L.marker([51.5, -0.09]).addTo(mymap);
             var circle = L.circle([51.508, -0.11], {
               color: 'red',
               fillColor: '#f03',
@@ -90,8 +98,6 @@
             marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
             circle.bindPopup("I am a circle.");
             polygon.bindPopup("I am a polygon");
-          </script>
-          <script>
           marker.on('click',function(e){
             mymap.setView(e.latlng, 14);
           });
@@ -101,8 +107,6 @@
           polygon.on('click', function(e){
             mymap.setView(e.latlng, 13);
           });
-          </script>
-          <script>
           var ZoomViewer = L.Control.extend({
             onAdd: function(){
               var gauge = L.DomUtil.create('div');
@@ -117,7 +121,7 @@
           });
           (new ZoomViewer).addTo(mymap);
           mymap.setView([0, 0], 1);
+          */
           </script>
-        </div>
   </body>
 </html>

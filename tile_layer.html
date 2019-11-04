@@ -15,13 +15,17 @@
         <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
         <script src="https://js.arcgis.com/4.13/"></script>
         <script>
+        // Adding layers to map
           require([
           "esri/Map",
           "esri/views/MapView",
           "esri/layers/TileLayer"
           ],
           function(Map, MapView, TileLayer){
+            //We are creating a new var here and its the tile layer
+            //It allows you to work with a cached map service this
             var TransportationLayer = new TileLayer({
+              // URL points to a cached tiled map service hosted on ArcGIS Server, ie it makes the map load faster
               url: "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
             });
             var map = new Map({

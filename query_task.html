@@ -11,12 +11,14 @@
           height: 100%;
           width: 100%;
         }
+        /* These lines make the pop up box for the query*/
         #optionsDiv {
           background-color: dimgray;
           color: white;
           padding: 10px;
           width: 350px;
         }
+        /* These next two boxes make the pop ups for the query after its been run givving you the results */
         .esri-popup .esri-popup-header .esri-title {
           font-size: 18px;
           font-weight: bolder;
@@ -28,6 +30,7 @@
         <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
         <script src="https://js.arcgis.com/4.13/"></script>
         <script>
+        //Provides a convenience function that allows you to dynamically load required modules
           require([
           "esri/Map",
           "esri/views/MapView",
@@ -43,7 +46,9 @@
             "dojo/domReady!"
           ],
           function(Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on) {
+            //This is the url to ArcGIS REST Services Directory where the data is called from
             var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/FeatureServer/0";
+            // the next var is listing all the fields from the url that you want to use
             var popupTemplate = {
               title: "{city}",
               fieldInfos: [{
@@ -61,20 +66,27 @@
                     digitSeperator: true
                   }
               }],
+              //This list the feilds from above in the box where the user selects the varibles for the querys
               content:
               "<b>Population:" + "</b> {Population}" +
               "<br><b>Households:</b> {Household}" +
               "<br><b>Latitude:</b> {Latitude}" +
               "<br><b>Longitude:</b> {Longitude}"
             };
+            //This creates a new GraphicsLayer that will display the query locations on the map
             var resultsLayer = new GraphicsLayer();
+            // The new QueryTask links the Population url so the query can pull from that data when executing
             var qTask = new QueryTask({
               url: popUrl
             });
+
             var params = new Query({
+              //If true, each feature in the returned FeatureSet includes the geometry.
               returnGeometry: true,
+              //ist actual field names rather than field aliases
               outFields: ["*"]
             });
+
             var CitiesRenderer = {
               type: "simple",//autocasts as new SimpleMarkerSymbol()
               symbol: {
@@ -112,25 +124,30 @@
               zoom: 10,
               center: [-118.2095, 34.0866]
             });
-
+            //Places the query box in a location
             view.when(function(){
               view.ui.add("optionsDiv", "bottom-right");
+              //this is what makes the "query" button work
               on(dom.byId("doBtn"), "click", doQuery);
             });
-
+            // These are the vaules that the query will use when calculating
             var attributeName = dom.byId("attSelect");
             var expressionSign = dom.byId("signSelect");
             var value = dom.byId("valSelect");
-
+            //creates the equation that the query will use
             function doQuery() {
               resultsLayer.removeAll();
+              //adding up the varibles the user chooses
               params.where = attributeName.value + expressionSign.value + value.value;
               qTask.execute(params)
+              //method returns a Promise. It takes up to two arguments
+              // callback functions for the success and failure cases of the Promise
               .then(getResults)
+              //method returns a Promise and deals with rejected cases only
               .catch(promiseRejected);
             }
             function getResults(response) {
-
+              
               var popResults = arrayUtils.map(response.features, function(feature){
               feature.popupTemplate = popupTemplate;
               return feature;
@@ -161,18 +178,25 @@
           </script>
     </head>
       <body>
+        <!-- creates the box for the map and everything -->
         <div id="viewDiv"></div>
+        <!-- Adds widget and optionsDiv to the box -->
         <div class="esri-widget" id="optionsDiv">
+          <!-- Creates title in the pop up for the query -->
           <h2>Cities in California</h2>
+          <!-- the next 3 lines of code puts attributeName with the wiget and adds 2 attributes to the attSelect -->
           <select class="esri-widget" id="attSelect">
             <option value="Population">Population</option>
             <option value="Household" selected>Households</option>
           </select>
+          <!-- the next 3 lines of code puts expressionSign with widet and adds the < and > to the ("signSelect"); -->
             <select class="esri-widget" id="signSelect">
               <option value=">">is greater than</option>
               <option value="<">is less than</option>
           </select>
+          <!-- the next 6 lines of code puts var value with widet and adds the valSelect to display -->
           <select class="esri-widget" id="valSelect">
+            <!--These lines are the values that will be calutlated by the query and the values that are displayed on the query-->
             <option value="10000">10,000</option>
             <option value="50000">50,000</option>
             <option value="100000">100,000</option>
@@ -181,8 +205,10 @@
           </select>
           <br>
           <br>
+          <!-- This is for the button to extue that query when clicked -->
           <button class="esri-widget" id="doBtn">Do Query</button>
           <br>
+          <!-- This calls the pop up box for the results of the query -->
           <p><span id="printResults"></span></p>
           <script>
           </script>

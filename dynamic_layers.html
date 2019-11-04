@@ -21,7 +21,11 @@
           "esri/layers/TileLayer",
           "esri/layers/MapImageLayer"
           ],
+          //MapImageLayer allows you to display and analyze data from sublayers defined in a map service
+          //exporting images instead of features. It also uses servers to to generate maps which means its quicker
           function(Map, MapView, TileLayer, MapImageLayer){
+            //This code creates yellow circles on the map where population centers are located
+            // It also specifies all the attributtes of the circles
             var CitiesRenderer = {
               type: "simple",//autocasts as new SimpleMarkerSymbol()
               symbol: {
@@ -41,6 +45,7 @@
               sublayers: [
                 {
                   id: 0,
+                  //This line will call CitiesRenderer when its executed
                   renderer: CitiesRenderer,
                   opacity: 0.4
                 }
@@ -51,8 +56,10 @@
             });
             var map = new Map({
               basemap: "dark-gray",
+              //We are adding the two var's to the map online and CitiesLayer includes CitiesRenderer
               layers: [ TransportationLayer, CitiesLayer ]
             });
+            //this sets the map exent and ensusers it shows up in the viewDiv container 
             var view = new MapView({
               container: "viewDiv",
               map: map,

@@ -65,9 +65,11 @@
               console.log("You just triggered a 'click' event!");
               alert("You just triggered a 'click' event!");
             }
+            //this new var is adding a basemap to the viewDiv so it pops up in the map
             var basemapGallery = new BasemapGallery({
               view: view
             });
+            //This code allows the user to use the diffrent base maps and set the postion for it 
             view.ui.add(basemapGallery, {
               position: "top-right"
             });

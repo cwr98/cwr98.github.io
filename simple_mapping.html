@@ -1,10 +1,13 @@
 <!doctype html>
   <html>
     <head>
+      <!--The charset attribute specifies the character encoding for the HTML document. -->
       <meta charset="utf-8">
+      <!--Used to name attributes to define a description, keywords -->
       <meta name="viewport, content=intial-scale=1, user-scalable=no">
       <title>Simple Mapping</title>
       <style>
+       /*This geates a area for the map to go into later when we add this DIV to the map*/
         html, body, #viewDiv {
           padding: 0;
           margin: 0;
@@ -12,17 +15,23 @@
           width: 100%;
         }
         </style>
+        <!-- The link tag defines a link between a document and an external resource. -->
         <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
         <script src="https://js.arcgis.com/4.13/"></script>
         <script>
+        // Load the Map and MapView modules
           require([
           "esri/Map",
           "esri/views/MapView"
           ],
+          // this calls the map from the links above and sets a base map.
           function(Map, MapView){
+            //Create a Map instance
             var map = new Map({
               basemap: "streets"
             });
+            //Create a MapView instance (for 2D viewing) and set its map property to
+            //the map instance we just created
             var view = new MapView({
               container: "viewDiv",
               map: map,
@@ -33,6 +42,7 @@
           </script>
     </head>
     <body>
+      <!--Where the map will be palced on the webpage-->
       <div id="viewDiv"></div>
     </body>
   </html>
